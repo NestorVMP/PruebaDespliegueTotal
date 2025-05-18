@@ -8,7 +8,6 @@ const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const mongoSanitize = require('express-mongo-sanitize');
 const cookieParser = require('cookie-parser');
-const path = require('path');
 
 const app = express();
 app.set('trust proxy', 1); // ⬅️ AÑADE ESTA LÍNEA AQUÍ
