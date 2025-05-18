@@ -40,12 +40,11 @@ app.use('/user', UserRoutes);
 });*/
 
 // ⬇️ SIRVE STATIC DEL FRONTEND DESPUÉS DE LAS RUTAS API
-const frontendPath = path.join(__dirname, '../frontend/dist');
-app.use(express.static(frontendPath));
+app.use(express.static(path.join(__dirname, '..', 'frontend', 'dist')));
 
 // ⬇️ Para React Router (SPA), sirve el index.html si no matchea rutas anteriores
 app.get('*', (req, res) => {
-  res.sendFile(path.join(frontendPath, 'index.html'));
+  res.sendFile(path.join(__dirname, '..', 'frontend', 'dist', 'index.html'));
 });
 
 app.use(notFoundHandler);
