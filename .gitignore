@@ -1,0 +1,15 @@
+# .gitignore
+
+# Node modules
+**/node_modules
+
+# Env files
+backend/.env
+frontend/.env
+.env
+
+# Log files
+*.log
+
+# Build output
+frontend/dist
