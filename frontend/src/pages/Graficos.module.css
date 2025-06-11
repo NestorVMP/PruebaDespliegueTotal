@@ -1,0 +1,191 @@
+/*.contenedor {
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.titulo {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #333;
+}
+
+.controles {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.selector {
+  padding: 0.4rem 0.8rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.estrella {
+  cursor: pointer;
+  color: gray;
+  transition: color 0.3s;
+}
+
+.estrella:hover {
+  color: gold;
+}
+
+.activa {
+  color: gold;
+}
+
+.grafico {
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.loading, .error {
+  text-align: center;
+  font-weight: bold;
+  color: #555;
+  margin-top: 2rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}*/
+
+/* Contenedor principal con padding responsive */
+.contenedor {
+  padding: 0.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Título centrado */
+.titulo {
+  font-size: 1.5rem;
+  /* margin-bottom: 1rem; */
+  margin-bottom: 0.5rem;
+  text-align: center;
+  color: #333;
+}
+
+/* Controles con estructura de fila compacta */
+.controles {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  /* margin-bottom: 1rem; */
+  margin-bottom: 0.5rem;
+}
+
+/* Grupo visual entre select y estrella */
+/* .selectGroup {
+  position: relative;
+  display: inline-block;
+} */
+.selectGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Select estilizado compacto */
+/* .selector {
+  padding: 0.2rem 1.6rem 0.2rem 0.5rem;
+  font-size: 0.85rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 160px;
+} */
+
+/* Estrella posicionada absoluta dentro del grupo */
+/* .estrella {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: gray;
+  transition: color 0.3s;
+} */
+.estrella {
+  cursor: pointer;
+  color: gray;
+  transition: color 0.3s;
+  font-size: 1.2rem;
+}
+
+.estrella:hover {
+  color: gold;
+}
+
+.activa {
+  color: gold;
+}
+
+.selector {
+  padding: 0.3rem 0.8rem;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 160px;
+}
+
+/* Área del gráfico */
+.grafico {
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  animation: fadeIn 0.4s ease-in-out;
+  overflow-x: auto; /* permite scroll si la gráfica es ancha */
+}
+
+.loading,
+.error {
+  text-align: center;
+  font-weight: bold;
+  color: #555;
+  margin-top: 2rem;
+}
+
+.graficoFull {
+  min-height: calc(100vh - 160px); /* Ajusta según altura del header */
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  animation: fadeIn 0.4s ease-in-out;
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Animación de entrada suave */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

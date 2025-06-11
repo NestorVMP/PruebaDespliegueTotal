@@ -1,63 +1,116 @@
-/*import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
-
-export default App
-*/
 /*import React from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import LoginForm from './components/LoginForm';
+import SuccessPage from './components/SuccessPage';
+import Dashboard from './pages/Dashboard';
+import Mensualidad from './pages/Mensualidad';
+import RequireAuth from './components/RequireAuth';
+import Graficos from './pages/Graficos';
 
 const App = () => {
   return (
-    <div>
-      <h1>Login</h1>
-      <LoginForm />
-    </div>
+    <Routes>
+      // Rutas públicas 
+      <Route path="/" element={<LoginForm />} />
+      <Route path="/success" element={<SuccessPage />} />
+
+      // Rutas privadas 
+      <Route
+        path="/dashboard"
+        element={
+          <RequireAuth>
+            <Dashboard />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/mensualidad"
+        element={
+          <RequireAuth>
+            <Mensualidad />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/graficos"
+        element={
+          <RequireAuth>
+            <Graficos />
+          </RequireAuth>
+        }
+      />
+
+      // Redirección por defecto
+      <Route path="*" element={<Navigate to="/" />} />
+    </Routes>
   );
 };
 
 export default App;*/
 
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import LoginForm from './components/LoginForm';
 import SuccessPage from './components/SuccessPage';
+import Dashboard from './pages/Dashboard';
+import Mensualidad from './pages/Mensualidad';
+import RequireAuth from './components/RequireAuth';
+import Graficos from './pages/Graficos';
+import Layout from './components/Layout';
+import Perfil from './pages/Perfil';
 
 const App = () => {
   return (
     <Routes>
+      {/* Rutas públicas */}
       <Route path="/" element={<LoginForm />} />
       <Route path="/success" element={<SuccessPage />} />
+
+      {/* Rutas privadas */}
+      <Route
+        path="/dashboard"
+        element={
+          <RequireAuth>
+            <Layout>
+              <Dashboard />
+            </Layout>
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/mensualidad"
+        element={
+          <RequireAuth>
+            <Layout>
+              <Mensualidad />
+            </Layout>
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/graficos"
+        element={
+          <RequireAuth>
+            <Layout>
+              <Graficos />
+            </Layout>
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/perfil"
+        element={
+          <RequireAuth>
+            <Layout>
+              <Perfil />
+            </Layout>
+          </RequireAuth>
+        }
+      />
+
+
+      {/* Redirección por defecto */}
+      <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
 };

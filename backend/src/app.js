@@ -1,6 +1,11 @@
 const express = require('express');
 const path = require('path');
 const UserRoutes = require('./routes/userRoutes');
+const gastoRoutes = require('./routes/gastoRoutes');
+const suscripcionRoutes = require('./routes/suscripcionRoutes');
+const consumoRoutes = require('./routes/consumoRoutes');
+const categoriaRoutes = require('./routes/categoriaRoutes');
+const frecuenciaRoutes = require('./routes/frecuenciaRoutes');
 const errorHandler = require('./middlewares/errorMiddleware');
 const notFoundHandler = require('./middlewares/notFoundHandler');
 const cors = require('cors');
@@ -10,7 +15,7 @@ const mongoSanitize = require('express-mongo-sanitize');
 const cookieParser = require('cookie-parser');
 
 const app = express();
-app.set('trust proxy', 1); // ⬅️ AÑADE ESTA LÍNEA AQUÍ
+app.set('trust proxy', 1);
 
 app.use(cookieParser());
 app.use(express.json());
@@ -30,13 +35,16 @@ const apiLimiter = rateLimit({
   message: 'Demasiadas peticiones desde esta IP'
 });
 
-app.use('/api', apiLimiter);
+['/user', '/gasto', '/suscripcion', '/consumo', '/api', '/categorias'].forEach((ruta) =>
+  app.use(ruta, apiLimiter)
+);
 
 app.use('/user', UserRoutes);
-
-/*app.get('/', (req, res) => {
-  res.send('API de backend en funcionamiento');
-});*/
+app.use('/gasto', gastoRoutes);
+app.use('/suscripcion', suscripcionRoutes);
+app.use('/consumo', consumoRoutes);
+app.use('/categorias', categoriaRoutes);
+app.use('/frecuencias', frecuenciaRoutes);
 
 app.use(express.static(path.join(__dirname, '../../frontend/dist')));
 

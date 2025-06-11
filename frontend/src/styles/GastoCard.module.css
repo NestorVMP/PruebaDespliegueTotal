@@ -1,0 +1,110 @@
+.card {
+  position: relative;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: #fafafa;
+  transition: box-shadow 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Fila 1: Fecha + botones */
+.filaSuperior {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Fila 2: Nombre + Monto */
+.filaIntermedia {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Fila 3: Categoría + Consumo */
+.filaInferior {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Estilos individuales */
+.nombre {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.monto {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #2c7;
+  white-space: nowrap;
+}
+
+.fecha {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.categoria {
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.consumo {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/*.botones {
+  display: flex;
+  gap: 0.5rem;
+}*/
+.botones {
+  display: flex;
+  gap: 0.5rem;
+  transition: opacity 0.2s ease;
+  opacity: 0;
+}
+
+.card:hover .botones,
+.card.activo .botones {
+  opacity: 1;
+}
+
+
+.boton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+.boton.editar {
+  color: #007bff;
+}
+
+.boton.eliminar {
+  color: #dc3545;
+}
+
+.pagada {
+  border-left: 4px solid #4caf50;
+  background-color: #e6ffed;
+}
+
+.pendiente {
+  border-left: 4px solid #ff9800;
+  background-color: #fff9db;
+}

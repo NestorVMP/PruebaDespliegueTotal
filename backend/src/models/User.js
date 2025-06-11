@@ -18,13 +18,19 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
     required: [true, 'La contraseña del usuario es obligatoria'],
-    minlength: [6, 'La contraseña debe tener al menos 6 caracteres']
+    minlength: [5, 'La contraseña debe tener al menos 5 caracteres']
   },
   role: {
     type: String,
     enum: ['user', 'admin'],
     default: 'user'
+  },
+  preferredChart: {
+    type: String,
+    enum: ['barra', 'linea', 'none'], // <--- agregas 'none'
+    default: 'none'
   }
+
 }, {
   timestamps: true
 });

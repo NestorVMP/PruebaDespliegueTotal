@@ -1,0 +1,245 @@
+.dashboard-container {
+  padding: 1rem 1.2rem 5rem;
+  font-family: 'Poppins', sans-serif;
+  background-color: #fdfdfd;
+}
+
+.dashboard-welcome {
+  font-size: 1.2rem;
+  margin-bottom: 1.2rem;
+  color: #333;
+}
+
+/*.dashboard-botones {
+  margin-bottom: 1.8rem;
+}*/
+/*.dashboard-botones {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.dashboard-botones button {
+  width: 100%;
+  background: linear-gradient(135deg, #e0f7fa, #f0f8ff);
+  color: #333;
+  padding: 0.7rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  transition: background 0.2s ease;
+}
+
+.dashboard-botones button:hover {
+  background: linear-gradient(135deg, #d0f0f5, #e0f0ff);
+}*/
+
+/* .dashboard-botones {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+} */
+
+.dashboard-botones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.boton-principal button,
+.botones-recurrentes button {
+  background: linear-gradient(135deg, #e0f7fa, #f0f8ff);
+  color: #333;
+  padding: 0.7rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  transition: background 0.2s ease;
+}
+
+/*.boton-principal {
+  width: 100%;
+}
+
+.botones-recurrentes {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.botones-recurrentes button {
+  flex: 1;
+}
+
+.boton-principal button:hover,
+.botones-recurrentes button:hover {
+  background: linear-gradient(135deg, #d0f0f5, #e0f0ff);
+}*/
+
+/* Estilo base de los botones */
+.boton {
+  background: linear-gradient(135deg, #e0f7fa, #f0f8ff);
+  color: #333;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: background 0.2s ease;
+  width: 100%;
+}
+
+/* Hover */
+.boton:hover {
+  background: linear-gradient(135deg, #d0eef2, #e5f6ff);
+}
+
+.boton-principal {
+  margin-bottom: 0.8rem; /* Espacio entre el primer botón y los secundarios */
+}
+
+.boton-principal button {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(135deg, #d7efff, #eaf6ff);
+  color: #004466;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: background 0.3s ease;
+  cursor: pointer;
+  height: 52px;
+}
+
+.boton-principal button:hover {
+  background: linear-gradient(135deg, #c3e3f5, #dceffc);
+}
+
+.botones-recurrentes {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.botones-recurrentes button {
+  flex: 1 1 48%;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(135deg, #d7efff, #eaf6ff);
+  color: #004466;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: background 0.3s ease;
+  cursor: pointer;
+  height: 52px;
+}
+
+.botones-recurrentes button:hover {
+  background: linear-gradient(135deg, #c3e3f5, #dceffc);
+}
+
+.dashboard-mes {
+  margin-bottom: 2rem;
+}
+
+.dashboard-mes h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #007bff;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 0.2rem;
+}
+
+/*@media screen and (min-width: 768px) {
+  .dashboard-botones {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .boton-principal {
+    flex: 1;
+    margin-bottom: 0;
+  }
+
+  .botones-recurrentes {
+    flex: 1.5;
+    display: flex;
+    gap: 0.8rem;
+  }
+
+  .botones-recurrentes button,
+  .boton-principal button {
+    width: 100%;
+  }
+}*/
+/* En escritorio: todos en una fila, mismos tamaños */
+/* @media screen and (min-width: 768px) {
+  .dashboard-botones {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .dashboard-botones button {
+    flex: 1;
+  }
+} */
+
+/* En escritorio: todos los botones en una fila iguales */
+/* @media screen and (min-width: 768px) {
+  .dashboard-botones {
+    flex-direction: row;
+    gap: 0.8rem;
+  }
+
+  .boton-principal,
+  .botones-recurrentes {
+    flex: 1;
+  }
+
+  .botones-recurrentes {
+    gap: 0.8rem;
+  }
+
+  .boton-principal button,
+  .botones-recurrentes button {
+    width: 100%;
+  }
+} */
+/* @media screen and (max-width: 767px) {
+  .boton-gasto {
+    width: 100%;
+  }
+
+  .boton-suscripcion,
+  .boton-consumo {
+    width: 48%;
+  }
+} */
+@media screen and (max-width: 767px) {
+  .boton-gasto {
+    width: 100%;
+  }
+
+  .boton-suscripcion,
+  .boton-consumo {
+    width: calc(50% - 0.4rem); /* Ajusta el 0.4rem si cambias el gap */
+  }
+}
+
+
+/* --- MODO ESCRITORIO --- */
+@media screen and (min-width: 768px) {
+  .boton {
+    flex: 1;
+    width: auto;
+  }
+}

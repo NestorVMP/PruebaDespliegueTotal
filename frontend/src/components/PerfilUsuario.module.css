@@ -1,0 +1,60 @@
+.card {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  max-width: 500px;
+  margin: auto;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.item label {
+  width: 180px;
+  font-weight: bold;
+}
+
+.item span,
+.item input,
+.item select {
+  flex-grow: 1;
+  font-size: 1rem;
+  padding: 0.4rem;
+}
+
+.item button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.guardar {
+  background-color: #4caf50;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.cancelar {
+  background-color: #ccc;
+  color: #333;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}

@@ -1,0 +1,174 @@
+.contenedor {
+  padding: 20px;
+}
+
+.titulo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.listaMensualidades {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.tarjeta {
+  background: #fdfdfd;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  position: relative;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease;
+}
+
+.tarjeta:hover {
+  transform: translateY(-4px);
+}
+
+.tarjeta.inactiva {
+  opacity: 0.5;
+}
+
+.acciones {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  gap: 10px;
+}
+
+.acciones button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nombre {
+  margin: 0;
+  font-size: 18px;
+}
+
+.detalle {
+  font-size: 14px;
+  color: #666;
+  margin: 4px 0;
+}
+
+.pago {
+  font-size: 13px;
+  color: #999;
+}
+
+.monto {
+  text-align: right;
+  margin-top: 10px;
+  font-weight: bold;
+  color: green;
+}
+
+.unidad {
+  font-size: 12px;
+  color: #888;
+  text-align: right;
+}
+
+.switch {
+  font-size: 12px;
+  margin-top: 10px;
+  display: block;
+  text-align: right;
+}
+
+.suscripcion {
+  background-color: #e0f0ff;
+}
+
+.consumo {
+  background-color: #f2e6ff;
+}
+
+.badge {
+  background-color: #ccc;
+  color: #333;
+  border-radius: 8px;
+  font-size: 12px;
+  padding: 2px 6px;
+  margin-left: 8px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.monto {
+  font-weight: bold;
+  color: green;
+  margin-top: 10px;
+  text-align: left; /* 👈 antes era right */
+}
+
+.unidad {
+  font-size: 12px;
+  color: #888;
+  text-align: left; /* 👈 antes era right */
+}
+
+.switch {
+  font-size: 12px;
+  margin-top: 10px;
+  display: block;
+  text-align: left; /* 👈 antes era right */
+}
+
+.filtros {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+}
+
+.filtros label {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+}
+
+.filtros select {
+  padding: 0.4rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.filtroGrupo {
+  margin-bottom: 1.5rem;
+}
+
+.botonera {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.filtroBtn {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #f3f3f3;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+}
+
+.filtroBtn:hover {
+  background-color: #e0e0e0;
+}
+
+.filtroBtn.activo {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}

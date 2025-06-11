@@ -1,0 +1,60 @@
+.wrapper {
+  width: 100%;
+  background: #f9f9f9;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.grafico {
+  width: 100%;
+  height: 320px; /* ajustable */
+}
+
+.titulo {
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.botones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.boton {
+  background-color: #f0f0f0;
+  color: #333;
+  border: none;
+  padding: 0.4rem 0.9rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Estados activos por tipo */
+.activo.comparativa {
+  background: linear-gradient(to right, #1e88e5, #9c27b0, #2e7d32);
+  color: white;
+}
+.activo.total {
+  background-color: #c62828;
+  color: white;
+}
+.activo.suscripcion {
+  background-color: #1e88e5;
+  color: white;
+}
+.activo.consumo {
+  background-color: #7b1fa2;
+  color: white;
+}
+.activo.unico {
+  background-color: #2e7d32;
+  color: white;
+}
