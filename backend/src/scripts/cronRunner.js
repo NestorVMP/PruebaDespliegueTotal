@@ -44,7 +44,6 @@ async function enviarCorreos() {
     const datosMesActual = agrupados.find((d) => d.mes === mesActual);
     if (!datosMesActual) continue;
 
-    //const resumenTexto = `Hola ${usuario.name},\nEn ${mesActual} gastaste ${datosMesActual.total.toFixed(2)}€.`
     const resumenTexto = `En ${mesActual} gastaste un total de ${datosMesActual.total.toFixed(2)}€:
                         - Suscripciones: ${datosMesActual.suscripcion.toFixed(2)}€
                         - Consumo: ${datosMesActual.consumo.toFixed(2)}€
@@ -55,26 +54,7 @@ async function enviarCorreos() {
 
 
     //const grafico = await generarGrafico(agrupados);
-    const grafico = await generarGrafico([datosMesActual]); // solo un mes
-
-    /*await transporter.sendMail({
-      from: `"GastoTrack" <${process.env.EMAIL_USER}>`,
-      to: usuario.email,
-      subject: 'Resumen mensual con gráfica',
-      html: `
-        <h3>Hola ${usuario.name} 👋</h3>
-        <p>${resumenTexto}</p>
-        <p>A continuación te mostramos tu gráfico de gastos:</p>
-        <img src="cid:graficoGastos" />
-      `,
-      attachments: [
-        {
-          filename: 'grafico.png',
-          content: grafico,
-          cid: 'graficoGastos', // referencia en el HTML del correo
-        },
-      ],
-    });*/
+    const grafico = await generarGrafico([datosMesActual]);
 
     await transporter.sendMail({
         from: `"GastoTrack" <${process.env.EMAIL_USER}>`,
@@ -100,16 +80,16 @@ async function enviarCorreos() {
   console.log('⏱️ Job completado');
 }
 
-// Programar tarea
-//cron.schedule('*/5 * * * *', () => {
-  //console.log('⏰ Ejecutando job cada 5 minutos...');
-  //enviarCorreos();
-//});
+module.exports = { enviarCorreos };
 
-cron.schedule('* * * * *', () => {
+if (require.main === module) {
+  enviarCorreos(); // o cron.schedule(...) si aún quieres usarlo localmente
+}
+
+/*cron.schedule('* * * * *', () => {
   console.log('⏰ Ejecutando job cada minuto...');
   enviarCorreos();
-});
+});*/
 //enviarCorreos(); //para hacerlo al instante y luego empiece el contador
 
 //node src/scripts/cronRunner.js //ejecutar codigo

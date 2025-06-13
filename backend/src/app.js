@@ -7,6 +7,7 @@ const consumoRoutes = require('./routes/consumoRoutes');
 const categoriaRoutes = require('./routes/categoriaRoutes');
 const frecuenciaRoutes = require('./routes/frecuenciaRoutes');
 const emailRoutes = require('./routes/emailRoutes');
+const cronRoutes = require('./routes/cronRoutes');
 const errorHandler = require('./middlewares/errorMiddleware');
 const notFoundHandler = require('./middlewares/notFoundHandler');
 const cors = require('cors');
@@ -47,6 +48,7 @@ app.use('/consumo', consumoRoutes);
 app.use('/categorias', categoriaRoutes);
 app.use('/frecuencias', frecuenciaRoutes);
 app.use('/email', emailRoutes);
+app.use('/cron', cronRoutes);
 
 app.use(express.static(path.join(__dirname, '../../frontend/dist')));
 
