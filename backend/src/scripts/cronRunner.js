@@ -36,15 +36,24 @@ async function enviarCorreos() {
 
     const agrupados = agruparGastosMensuales(gastos);
 
-    const today = new Date();
+    /*const today = new Date();
     const mesActual = `${today.getFullYear()}-${(today.getMonth() + 1)
+      .toString()
+      .padStart(2, '0')}`;*/
+
+    const today = new Date();
+    const mesAnterior = new Date(today.getFullYear(), today.getMonth() - 1, 1);
+    const mesClave = `${mesAnterior.getFullYear()}-${(mesAnterior.getMonth() + 1)
       .toString()
       .padStart(2, '0')}`;
 
-    const datosMesActual = agrupados.find((d) => d.mes === mesActual);
+
+    //const datosMesActual = agrupados.find((d) => d.mes === mesActual);
+    const datosMesActual = agrupados.find((d) => d.mes === mesAnterior);
     if (!datosMesActual) continue;
 
-    const resumenTexto = `En ${mesActual} gastaste un total de ${datosMesActual.total.toFixed(2)}€:
+    const resumenTexto = //`En ${mesActual} gastaste un total de ${datosMesActual.total.toFixed(2)}€:
+                        `En ${mesAnterior} gastaste un total de ${datosMesActual.total.toFixed(2)}€:
                         - Suscripciones: ${datosMesActual.suscripcion.toFixed(2)}€
                         - Consumo: ${datosMesActual.consumo.toFixed(2)}€
                         - Gastos únicos: ${datosMesActual.unico.toFixed(2)}€
@@ -59,7 +68,8 @@ async function enviarCorreos() {
     await transporter.sendMail({
         from: `"GastoTrack" <${process.env.EMAIL_USER}>`,
         to: usuario.email,
-        subject: `Resumen de gastos: ${mesActual}`,
+        //subject: `Resumen de gastos: ${mesActual}`,
+        subject: `Resumen de gastos: ${mesAnterior}`,
         html: `
             <h3>Hola ${usuario.name} 👋</h3>
             <p>${resumenTexto.replace(/\n/g, '<br>')}</p>
