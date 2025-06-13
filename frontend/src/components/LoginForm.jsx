@@ -28,13 +28,8 @@ const LoginForm = () => {
         password
       }, { withCredentials: true });*/
 
-      /*const url = isRegistering
-        ? 'http://localhost:3000/user/register'
-        : 'http://localhost:3000/user/login';*/
-
-      const url = isRegistering
-        ? '/user/register'
-        : '/user/login';
+      //const url = isRegistering ? 'http://localhost:3000/user/register' : 'http://localhost:3000/user/login';
+      const url = isRegistering ? '/user/register' : '/user/login';
 
       const data = isRegistering
         ? { name, email, password }
@@ -44,14 +39,17 @@ const LoginForm = () => {
 
     if (res.status === 200 || res.status === 201) {
       try {
+        //await axios.post('http://localhost:3000/suscripcion/generar-facturas', null, {
         await axios.post('/suscripcion/generar-facturas', null, {
           withCredentials: true,
           headers: { 'X-Timezone': timezone }
         });
+        //await axios.post('http://localhost:3000/consumo/generar-facturas', null, {
         await axios.post('/consumo/generar-facturas', null, {
           withCredentials: true,
           headers: { 'X-Timezone': timezone }
         });
+        //await axios.post('http://localhost:3000/gasto/revisar-facturas', null, {
         await axios.post('/gasto/revisar-facturas', null, {
           withCredentials: true,
           headers: { 'X-Timezone': timezone }

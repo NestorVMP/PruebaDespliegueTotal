@@ -1,6 +1,5 @@
-// src/components/Modal.jsx
 import React from 'react';
-import './Modal.css'; // o usa estilos inline o Tailwind si prefieres
+import './Modal.css';
 
 const Modal = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;

@@ -1,130 +1,3 @@
-/*import React, { useState } from 'react';
-import axios from 'axios';
-import useCategorias from '../utils/useCategorias';
-
-const SuscripcionForm = ({ onSuccess, onClose }) => {
-  const [nombre, setNombre] = useState('');
-  const [monto, setMonto] = useState('');
-  const [fechaInicio, setFechaInicio] = useState('');
-  const [categoria, setCategoria] = useState('');
-  const [nuevaCategoria, setNuevaCategoria] = useState('');
-  const [agregandoCategoria, setAgregandoCategoria] = useState(false);
-
-  const [frecuencia, setFrecuencia] = useState('');
-  const frecuencias = ['mensual', 'anual'];
-
-  const { categorias, loading, error, refetch } = useCategorias();
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      await axios.post('http://localhost:3000/suscripcion/create', {
-        nombre,
-        monto: parseFloat(monto),
-        fechaInicio,
-        categoria,
-        frecuencia
-      }, { withCredentials: true });
-
-      await axios.post('http://localhost:3000/suscripcion/generar-facturas', null, {
-        withCredentials: true,
-      });
-
-      onSuccess();
-      onClose();
-    } catch (err) {
-      console.error(err);
-      alert('Error al crear suscripción');
-    }
-  };
-
-  const handleCrearCategoria = async () => {
-    if (!nuevaCategoria.trim()) return;
-
-    const nombreLimpio = nuevaCategoria.trim();
-
-    try {
-      const res = await axios.post(
-        'http://localhost:3000/categorias/create',
-        { nombre: nombreLimpio },
-        { withCredentials: true }
-      );
-
-      setAgregandoCategoria(false);
-      setNuevaCategoria('');
-      setCategoria(nombreLimpio);
-      await refetch();
-    } catch (err) {
-      console.error(err);
-      alert('No se pudo crear la nueva categoría');
-    }
-  };
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <h3>Nueva suscripción</h3>
-
-      <input type="text" placeholder="Nombre" value={nombre} onChange={(e) => setNombre(e.target.value)} required />
-      <input type="number" placeholder="Monto" value={monto} onChange={(e) => setMonto(e.target.value)} required />
-      <input type="date" value={fechaInicio} onChange={(e) => setFechaInicio(e.target.value)} required />
-
-      <select value={categoria} onChange={(e) => setCategoria(e.target.value)} required disabled={loading} >
-        <option value="">-- Selecciona una categoría --</option>
-        {categorias.map((cat) => (
-          <option key={cat._id} value={cat.nombre}>{cat.nombre}</option>
-        ))}
-      </select>
-
-      <div style={{ marginTop: '0.5rem' }}>
-        {!agregandoCategoria ? (
-          <button type="button" onClick={() => setAgregandoCategoria(true)}>
-            + Añadir nueva categoría
-          </button>
-        ) : (
-          <div style={{ marginTop: '0.5rem' }}>
-            <input
-              type="text"
-              placeholder="Nueva categoría"
-              value={nuevaCategoria}
-              onChange={(e) => setNuevaCategoria(e.target.value)}
-            />
-            <button type="button" onClick={handleCrearCategoria} style={{ marginLeft: '0.5rem' }}>
-              Crear
-            </button>
-            <button
-              type="button"
-              onClick={() => {
-                setAgregandoCategoria(false);
-                setNuevaCategoria('');
-              }}
-              style={{ marginLeft: '0.5rem' }}
-            >
-              Cancelar
-            </button>
-          </div>
-        )}
-      </div>
-
-      <select
-        value={frecuencia}
-        onChange={(e) => setFrecuencia(e.target.value)}
-        required
-      >
-        <option value="">-- Selecciona una frecuencia --</option>
-        {frecuencias.map((f) => (
-          <option key={f} value={f}>{f}</option>
-        ))}
-      </select>
-
-      <button type="submit" style={{ marginTop: '1rem' }} disabled={loading}>
-        Guardar
-      </button>
-    </form>
-  );
-};
-
-export default SuscripcionForm;*/
-
 import React, { useState } from 'react';
 import axios from 'axios';
 import useCategorias from '../utils/useCategorias';
@@ -157,7 +30,6 @@ const SuscripcionForm = ({ onSuccess, onClose }) => {
         monto: parseFloat(monto),
         fechaInicio,
         categoria,
-        //frecuencia: frecuenciaId
         frecuencia: frecuencias.find(f => f._id === frecuenciaId)
       }, { withCredentials: true });
 
@@ -213,7 +85,7 @@ const SuscripcionForm = ({ onSuccess, onClose }) => {
       );
 
       await refetchFrecuencias();
-      setFrecuenciaId(res.data._id); // seleccionar automáticamente
+      setFrecuenciaId(res.data._id);
       setAgregandoFrecuencia(false);
       setFrecuenciaNumero('');
     } catch (err) {

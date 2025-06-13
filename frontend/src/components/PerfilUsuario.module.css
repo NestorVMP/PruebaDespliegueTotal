@@ -58,3 +58,13 @@
   border: none;
   cursor: pointer;
 }
+
+.enviarMensaje {
+  background-color: #2196f3;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  margin-top: 1rem;
+}

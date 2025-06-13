@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styles from './PerfilUsuario.module.css';
-import { Pencil } from 'lucide-react'; // o puedes usar un icono personalizado
+import { Pencil } from 'lucide-react';
 import axios from 'axios';
-
+import { ejecutarResumenMensual } from '../utils/enviarResumenEmail';
 
 const PerfilUsuario = ({ user }) => {
   const [formData, setFormData] = useState({ ...user });
@@ -22,44 +22,10 @@ const PerfilUsuario = ({ user }) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
-  /*const handleSave = () => {
-    console.log('Datos guardados:', formData);
-    setOriginalData(formData);
-    setEditMode({});
-  };*/
-
-  /*const handleSave = async () => {
-    try {
-      const response = await axios.put('http://localhost:3000/user/update',
-        {
-          name: formData.name,
-          email: formData.email,
-          preferredChart: formData.preferredChart,
-          // password: opcional si permites cambiarlo
-        },
-        { withCredentials: true } // Para enviar la cookie con el token
-      );
-
-      console.log('Respuesta:', response.data);
-      setOriginalData(response.data.user);
-      setEditMode({});
-    } catch (err) {
-      console.error('Error al guardar usuario:', err.response?.data || err.message);
-      alert('Error al guardar los cambios');
-    }
-  };
-
-
-  const handleCancel = () => {
-    setFormData(originalData);
-    setEditMode({});
-  };*/
-
   const handleSave = async () => {
     try {
-      //const response = await axios.put('http://localhost:3000/user/update',
-      const response = await axios.put('/user/update',
-        {
+      //const response = await axios.put( 'http://localhost:3000/user/update', {
+      const response = await axios.put( '/user/update', {
           name: formData.name,
           email: formData.email,
           preferredChart: formData.preferredChart,
@@ -69,9 +35,9 @@ const PerfilUsuario = ({ user }) => {
 
       console.log('Respuesta:', response.data);
       setOriginalData(response.data.user);
-      setFormData(response.data.user); // Actualiza también el formData por si el back hace cambios
+      setFormData(response.data.user);
       setEditMode({});
-      setIsModified(false); // 👉 Esto asegura que desaparezcan los botones
+      setIsModified(false);
     } catch (err) {
       console.error('Error al guardar usuario:', err.response?.data || err.message);
       alert('Error al guardar los cambios');
@@ -81,7 +47,7 @@ const PerfilUsuario = ({ user }) => {
   const handleCancel = () => {
     setFormData(originalData);
     setEditMode({});
-    setIsModified(false); // 👉 También aquí para ocultar los botones
+    setIsModified(false);
   };
 
   return (
@@ -150,6 +116,14 @@ const PerfilUsuario = ({ user }) => {
           </button>
         </div>
       )}
+
+      {/* ✅ Nuevo botón que usa la función importada */}
+      <button
+        className={styles.enviarMensaje}
+        onClick={() => ejecutarResumenMensual(formData)}
+      >
+        Enviar resumen mensual
+      </button>
     </div>
   );
 };

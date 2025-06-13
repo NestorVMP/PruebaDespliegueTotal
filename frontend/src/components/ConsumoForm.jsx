@@ -86,7 +86,7 @@ const ConsumoForm = ({ onSuccess, onClose }) => {
       );
 
       await refetchFrecuencias();
-      setFrecuenciaId(res.data._id); // seleccionar automáticamente
+      setFrecuenciaId(res.data._id);
       setAgregandoFrecuencia(false);
       setFrecuenciaNumero('');
     } catch (err) {

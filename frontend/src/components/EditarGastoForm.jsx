@@ -15,7 +15,7 @@ const EditarGastoForm = ({ gasto, onSuccess, onClose }) => {
           nombre,
           monto,
           fecha,
-          usuario: gasto.usuario, // importante para backend
+          usuario: gasto.usuario,
         },
         { withCredentials: true }
       );

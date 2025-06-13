@@ -29,67 +29,6 @@ export const UserProvider = ({ children }) => {
     }
   }, [userData]);
 
-  /*useEffect(() => {
-    if (timezone) localStorage.setItem('timezone', timezone);
-  }, [timezone]);*/
-
-  // Rellenamos userData al iniciar desde localStorage si no viene nada
-  /*useEffect(() => {
-    const storedName = localStorage.getItem('name');
-    const storedChart = localStorage.getItem('preferredChart');
-
-    if (!userData && (storedName || storedChart)) {
-      setUserData({
-        name: storedName || '',
-        preferredChart: storedChart || 'barra',
-      });
-    }
-  }, [userData]);*/
-  /*useEffect(() => {
-    if (!userData) {
-      const stored = localStorage.getItem('userData');
-      if (stored) {
-        try {
-          const parsed = JSON.parse(stored);
-          setUserData(parsed);
-        } catch (err) {
-          console.error('❌ Error al parsear userData del localStorage:', err);
-        }
-      }
-    }
-  }, [userData]);*/
-    /*useEffect(() => {
-    if (!userData) {
-      const stored = localStorage.getItem('userData');
-
-      const storedName = localStorage.getItem('name');
-      const storedChart = localStorage.getItem('preferredChart');
-      if (stored) {
-        try {
-          const parsed = JSON.parse(stored);
-          setUserData(parsed);
-        } catch (err) {
-          console.error('❌ Error al parsear userData del localStorage:', err);
-        }
-      }
-    }
-  }, [userData]);*/
-
-  // Cuando llega data desde useAuth
-  /*useEffect(() => {
-    if (data) {
-      setUser(data?.user);
-      setUserData(prev => ({
-        ...prev,
-        name: data.user.name,
-        preferredChart: data.user.preferredChart || 'barra', // fallback si no tiene
-      }));
-    }
-    if (isError) {
-      setUser(null);
-    }
-  }, [data, isError]);*/
-
   // Facturación automática
   useEffect(() => {
     const interval = setInterval(async () => {

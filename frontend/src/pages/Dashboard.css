@@ -10,39 +10,6 @@
   color: #333;
 }
 
-/*.dashboard-botones {
-  margin-bottom: 1.8rem;
-}*/
-/*.dashboard-botones {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-  margin-bottom: 1.5rem;
-}
-
-.dashboard-botones button {
-  width: 100%;
-  background: linear-gradient(135deg, #e0f7fa, #f0f8ff);
-  color: #333;
-  padding: 0.7rem;
-  border: none;
-  border-radius: 8px;
-  font-size: 0.95rem;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
-  transition: background 0.2s ease;
-}
-
-.dashboard-botones button:hover {
-  background: linear-gradient(135deg, #d0f0f5, #e0f0ff);
-}*/
-
-/* .dashboard-botones {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-  margin-bottom: 1.5rem;
-} */
-
 .dashboard-botones {
   display: flex;
   flex-wrap: wrap;
@@ -61,24 +28,6 @@
   box-shadow: 0 2px 5px rgba(0,0,0,0.08);
   transition: background 0.2s ease;
 }
-
-/*.boton-principal {
-  width: 100%;
-}
-
-.botones-recurrentes {
-  display: flex;
-  gap: 0.8rem;
-}
-
-.botones-recurrentes button {
-  flex: 1;
-}
-
-.boton-principal button:hover,
-.botones-recurrentes button:hover {
-  background: linear-gradient(135deg, #d0f0f5, #e0f0ff);
-}*/
 
 /* Estilo base de los botones */
 .boton {
@@ -157,73 +106,6 @@
   padding-bottom: 0.2rem;
 }
 
-/*@media screen and (min-width: 768px) {
-  .dashboard-botones {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 0.8rem;
-  }
-
-  .boton-principal {
-    flex: 1;
-    margin-bottom: 0;
-  }
-
-  .botones-recurrentes {
-    flex: 1.5;
-    display: flex;
-    gap: 0.8rem;
-  }
-
-  .botones-recurrentes button,
-  .boton-principal button {
-    width: 100%;
-  }
-}*/
-/* En escritorio: todos en una fila, mismos tamaños */
-/* @media screen and (min-width: 768px) {
-  .dashboard-botones {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  .dashboard-botones button {
-    flex: 1;
-  }
-} */
-
-/* En escritorio: todos los botones en una fila iguales */
-/* @media screen and (min-width: 768px) {
-  .dashboard-botones {
-    flex-direction: row;
-    gap: 0.8rem;
-  }
-
-  .boton-principal,
-  .botones-recurrentes {
-    flex: 1;
-  }
-
-  .botones-recurrentes {
-    gap: 0.8rem;
-  }
-
-  .boton-principal button,
-  .botones-recurrentes button {
-    width: 100%;
-  }
-} */
-/* @media screen and (max-width: 767px) {
-  .boton-gasto {
-    width: 100%;
-  }
-
-  .boton-suscripcion,
-  .boton-consumo {
-    width: 48%;
-  }
-} */
 @media screen and (max-width: 767px) {
   .boton-gasto {
     width: 100%;

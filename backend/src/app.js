@@ -6,6 +6,7 @@ const suscripcionRoutes = require('./routes/suscripcionRoutes');
 const consumoRoutes = require('./routes/consumoRoutes');
 const categoriaRoutes = require('./routes/categoriaRoutes');
 const frecuenciaRoutes = require('./routes/frecuenciaRoutes');
+const emailRoutes = require('./routes/emailRoutes');
 const errorHandler = require('./middlewares/errorMiddleware');
 const notFoundHandler = require('./middlewares/notFoundHandler');
 const cors = require('cors');
@@ -45,6 +46,7 @@ app.use('/suscripcion', suscripcionRoutes);
 app.use('/consumo', consumoRoutes);
 app.use('/categorias', categoriaRoutes);
 app.use('/frecuencias', frecuenciaRoutes);
+app.use('/email', emailRoutes);
 
 app.use(express.static(path.join(__dirname, '../../frontend/dist')));
 
